@@ -24,25 +24,30 @@ public class Main {
 	}
 	
 	public static void word(String text, ArrayList<String> code) {  //Should be able to go through a text and find the string until it encounters a /
-		
+		int codelen = code.size();
 		for (int j = 0; j < text.length(); j++) {
 			String str = Character.toString(text.charAt(j));
-			
-			if (str.equals(code.get(0))) {
-				
-				for (int i = 0; i < code.size(); i++) {
-					System.out.println("i is: "  +i);
-					String nextStr = Character.toString(text.charAt(j+i));
-					if (!(str.equals(code.get(i)))) {
-						System.out.println("Breaking");
+			System.out.print(str);
+			if (str.equals(code.get(0))) {									// Checkes for if it has found a \
+				for (int i = 0; i < code.size(); i++) {						// Creates a for loop which stops when the 'code' has finished
+					String nextStr = Character.toString(text.charAt(j+i));	// Creates a new  char which is the char inside the for loop.
+					if (!(nextStr.equals(code.get(i)))) {						// if the new string is NOT equal to the first code char
 						break;
+						 
 					} else {
-						System.out.println("Worked");
+						System.out.println("Hello");
+						codelen += 1;
+						System.out.println();
 					}
-					System.out.println("This is nextStr: " + nextStr);
+					
+					if (codelen == code.size()) {
+						System.out.println("WEFOUNDITTT");
+					}
+					
 				}
 				
 			}
+			
 		}
 	}
 
